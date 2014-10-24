@@ -224,7 +224,6 @@ define(function (require) {
 
                     //first check if there is an applicationId, to be compatible with the previous code in titan release
                     // TODO >>>>>>>>>>> need to find out appd version that the user chose
-                    _.alert("need to find out AppD Version");
                     if(7.0 >= 6.1) {
                         baseURL = baseURL + "/index-prod.jsp/#";
                     } else {

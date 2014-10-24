@@ -219,10 +219,17 @@ define(function (require) {
                     // depending on whether application or only service(s)/task(s)
                     // were imported, change the message and url
                     var artifactType = '';
-                    var baseURL = that.attributes.postParams.appdhost + "/darwin/#";
+                    var baseURL = that.attributes.postParams.appdhost + "/darwin";
                     var encodedSegment = '';
 
                     //first check if there is an applicationId, to be compatible with the previous code in titan release
+                    // TODO >>>>>>>>>>> need to find out appd version that the user chose
+                    _.alert("need to find out AppD Version");
+                    if(7.0 >= 6.1) {
+                        baseURL = baseURL + "/index-prod.jsp/#";
+                    } else {
+                        baseURL = baseURL + "/#";
+                    }
                     if (data.applicationId > 0 || data.applicationsCount > 0) {
                         artifactType = data.applicationsCount > 1 ? data.applicationsCount + ' Applications' : '1 Application';
                         encodedSegment = cu.strToBase64("false:applicationOverviewPage:" + data.applicationId);
